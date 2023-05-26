@@ -16,19 +16,36 @@ var NeutronTransferIterations = 5
 var NeutronsLastStep = 0
 var NeutronsThisStep = 0
 
+var ByproductRate = 0.05
+var DecayRate = 0.05
+var BurnupRate = 0.005
+
 func _ready():
     for X in Size.X:
         for Y in Size.Y:
             for Z in Size.Z:
                 Cells[X][Y][Z] = {
-                    Neutrons = StartupNeutrons if Sources.has(X*Y*Z) else 0
+                    Neutrons = StartupNeutrons if Sources.has(X*Y*Z) else 0,
+
+                    Xe135Concentration = 10,
+                    I135Concentration = 10,
+
+                    RemainingU235 = 1000
                 }
                 
 
-
+#TODO: Implement fuel burnup
 func _physics_process(_delta):
-    return
+    TransferNeutrons()
 
+    for X in Size.X:
+        for Y in Size.Y:
+            for Z in Size.Z:
+                Cells[X][Y][Z].Neutrons *= randi_range(1,3)
+                Cells[X][Y][Z].I135Concentration += ((Cells[X][Y][Z].Neutrons/MaxNeutrons) * ByproductRate) - Cells[X][Y][Z].I135Concentration * DecayRate
+                Cells[X][Y][Z].Xe135Concentration += Cells[X][Y][Z].I135Concentration * DecayRate
+
+#TODO: Implement xenon and iodine impact on absorption
 func TransferNeutrons():
     for Iteration in NeutronTransferIterations:
         for X in Size.X:
@@ -46,6 +63,7 @@ func TransferNeutrons():
                         CRCoefficient = (ZPosition - Rods[X][Y]) / Size.Z
 
                     Cells[X][Y][Z].Neutrons -= TransferedNeutrons
+                    Cells[X][Y][Z].Neutrons = clamp(Cells[X][Y][Z].Neutrons, 0, MaxNeutrons^2)
 
                     for Neighbor in Neighbors:
                         if not Cells[Neighbor.X] and not Cells[Neighbor.X][Neighbor.Y] and not Cells[Neighbor.X][Neighbor.Y][Neighbor.Z]:
