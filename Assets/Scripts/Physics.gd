@@ -22,7 +22,10 @@ var BurnupRate = 0.005
 
 func _ready():
     for X in Size.X:
+        Rods[X] = {}
         for Y in Size.Y:
+            Rods[Y] = 0
+            
             for Z in Size.Z:
                 Cells[X][Y][Z] = {
                     Neutrons = StartupNeutrons if Sources.has(X*Y*Z) else 0,
