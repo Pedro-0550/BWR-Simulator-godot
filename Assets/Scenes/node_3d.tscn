@@ -1,4 +1,4 @@
-[gd_scene load_steps=360 format=3 uid="uid://eyj57tr68qk3"]
+[gd_scene load_steps=361 format=3 uid="uid://eyj57tr68qk3"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Main.gd" id="1_eg7xd"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/RWM.gd" id="33_f1vki"]
 [ext_resource type="Script" path="res://Assets/Scripts/RWM Button.gd" id="34_cyh57"]
 [ext_resource type="Material" uid="uid://c2raag84b6lqd" path="res://Assets/Materials/black metal.tres" id="35_r1uh5"]
+[ext_resource type="Script" path="res://Assets/Scripts/Physics.gd" id="36_ef5g4"]
 
 [sub_resource type="Environment" id="Environment_l5pxq"]
 background_color = Color(0.2139, 0.570975, 0.69, 1)
@@ -7917,7 +7918,7 @@ texture = ExtResource("16_47fu1")
 transform = Transform3D(0, 0, 0.19, 0, 0.19, 0, -0.19, 0, 0, 0.225002, 0.00746608, -0.292204)
 sorting_offset = 20.0
 modulate = Color(0.768627, 0.313726, 0.337255, 1)
-text = "100"
+text = "0"
 font = ExtResource("17_th8xm")
 font_size = 128
 horizontal_alignment = 2
@@ -10234,6 +10235,9 @@ offset_bottom = 40.0
 [node name="Main Loop Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="Physics" type="Node" parent="."]
+script = ExtResource("36_ef5g4")
 
 [connection signal="input_event" from="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/Insert_pb/StaticBody3D" to="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/Insert_pb/StaticBody3D" method="_on_input_event"]
 [connection signal="input_event" from="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/SCRAM/StaticBody3D" to="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/SCRAM/StaticBody3D" method="_on_input_event"]
