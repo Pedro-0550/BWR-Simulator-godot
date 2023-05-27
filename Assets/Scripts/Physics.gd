@@ -50,6 +50,8 @@ func _physics_process(_delta):
 	for X in range(1, Size.X):
 		for Y in range(1, Size.Y):
 			for Z in range(1, Size.Z):
+				await get_tree().create_timer(0.002).timeout
+
 				Cells[X][Y][Z].Neutrons = Cells[X][Y][Z].Neutrons * 3
 				Cells[X][Y][Z].Neutrons += StartupNeutrons if Sources.has(X*Y*Z) else 0
 				
