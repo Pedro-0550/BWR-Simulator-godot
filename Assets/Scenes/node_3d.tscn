@@ -35,7 +35,6 @@
 [ext_resource type="Script" path="res://Assets/Scripts/RWM.gd" id="33_f1vki"]
 [ext_resource type="Script" path="res://Assets/Scripts/RWM Button.gd" id="34_cyh57"]
 [ext_resource type="Material" uid="uid://c2raag84b6lqd" path="res://Assets/Materials/black metal.tres" id="35_r1uh5"]
-[ext_resource type="Script" path="res://Assets/Scripts/Physics.cs" id="36_nqmeu"]
 
 [sub_resource type="Environment" id="Environment_l5pxq"]
 background_color = Color(0.2139, 0.570975, 0.69, 1)
@@ -2450,6 +2449,24 @@ clearcoat = 0.16
 clearcoat_roughness = 1.0
 refraction_enabled = true
 
+[sub_resource type="CSharpScript" id="CSharpScript_nsf5u"]
+script/source = "using Godot;
+using System;
+
+public partial class Physics : Node
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
 [node name="Node3d" type="Node3D"]
 script = ExtResource("1_eg7xd")
 
@@ -2472,7 +2489,7 @@ size = Vector3(1.62321, 3.60393, 1.88328)
 material = ExtResource("3_e4fug")
 
 [node name="room" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.657, -1.99925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.092, 1.40215, -2.64261)
 use_collision = true
 flip_faces = true
 size = Vector3(23.3561, 3.31346, 17.0579)
@@ -10237,7 +10254,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="Physics" type="Node" parent="."]
-script = ExtResource("36_nqmeu")
+script = SubResource("CSharpScript_nsf5u")
 
 [connection signal="input_event" from="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/Insert_pb/StaticBody3D" to="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/Insert_pb/StaticBody3D" method="_on_input_event"]
 [connection signal="input_event" from="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/SCRAM/StaticBody3D" to="Control Room Panels/Main Panel Center/Controls/Rod Select Panel/Panel 2/Lights and buttons/SCRAM/StaticBody3D" method="_on_input_event"]

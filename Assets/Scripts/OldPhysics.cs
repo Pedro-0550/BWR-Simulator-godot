@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 
-public partial class Physics : Node
+public partial class OldPhysics : Node
 {
     public class Rod
     {
