@@ -127,6 +127,9 @@ public partial class Physics : Node
                         {
                             ref Cell Neighbor = ref Cells[NeighborCoord.X, NeighborCoord.Y, NeighborCoord.Z];
 
+                            if (Neighbor == null)
+                                continue;
+
                             Neighbor.ThermalNeutrons += TransferedThermalNeutrons * CRCoefficient / 26;
                             Neighbor.FastNeutrons += TransferedFastNeutrons * CRCoefficient / 26;
                         }
