@@ -10,7 +10,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "/home/lightmodepidro/Desktop/GodotEngine/Godot_v4.0.3-stable_mono_linux.x86_64",
+      "program": "/home/lightmodepidro/Desktop/Godot-Editor/Godot_v4.0.3-stable_mono_linux.x86_64",
       "args": [],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
@@ -22,7 +22,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "/home/lightmodepidro/Desktop/GodotEngine/Godot_v4.0.3-stable_mono_linux.x86_64",
+      "program": "/home/lightmodepidro/Desktop/Godot-Editor/Godot_v4.0.3-stable_mono_linux.x86_64",
       "args": [
         "${fileDirname}/${fileBasenameNoExtension}.tscn"
       ],
@@ -34,7 +34,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "/home/lightmodepidro/Desktop/GodotEngine/Godot_v4.0.3-stable_mono_linux.x86_64",
+      "program": "/home/lightmodepidro/Desktop/Godot-Editor/Godot_v4.0.3-stable_mono_linux.x86_64",
       "args": [
         // These command line flags are used by GoDotTest to run tests.
         "--run-tests",
@@ -48,7 +48,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "/home/lightmodepidro/Desktop/GodotEngine/Godot_v4.0.3-stable_mono_linux.x86_64",
+      "program": "/home/lightmodepidro/Desktop/Godot-Editor/Godot_v4.0.3-stable_mono_linux.x86_64",
       "args": [
         // These command line flags are used by GoDotTest to run tests.
         "--run-tests=${fileBasenameNoExtension}",
@@ -56,48 +56,6 @@
       ],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
-    },
-    {
-        "name": "Play in Editor",
-        "type": "godot-mono",
-        "mode": "playInEditor",
-        "request": "launch"
-    },
-    {
-        "name": "Launch",
-        "type": "godot-mono",
-        "request": "launch",
-        "mode": "executable",
-        "preLaunchTask": "build",
-        "executable": "/home/lightmodepidro/Desktop/GodotEngine/Godot_v4.0.3-stable_mono_linux.x86_64",
-        // See which arguments are available here:
-        // https://docs.godotengine.org/en/stable/getting_started/editor/command_line_tutorial.html
-        "executableArguments": [
-            "--path",
-            "${workspaceRoot}"
-        ]
-    },
-    {
-        "name": "Launch (Select Scene)",
-        "type": "godot-mono",
-        "request": "launch",
-        "mode": "executable",
-        "preLaunchTask": "build",
-        "executable": "/home/lightmodepidro/Desktop/GodotEngine/Godot_v4.0.3-stable_mono_linux.x86_64",
-        // See which arguments are available here:
-        // https://docs.godotengine.org/en/stable/getting_started/editor/command_line_tutorial.html
-        "executableArguments": [
-            "--path",
-            "${workspaceRoot}",
-            "${command:SelectLaunchScene}"
-        ]
-    },
-    {
-        "name": "Attach",
-        "type": "godot-mono",
-        "request": "attach",
-        "address": "localhost",
-        "port": 23685
     },
   ]
 }

@@ -1,52 +1,14 @@
 {
-    "version": "2.0.0",
-    "tasks": [
+  "version": "2.0.0",
+  "tasks": [
       {
-        "label": "build",
-        "command": "<insert-godot-executable-path-here>",
-        "type": "process",
-        "args": [
-            "--build-solutions",
-            "--path",
-            "${workspaceRoot}",
-            "--no-window",
-            "-q"
-        ],
-        "problemMatcher": "$msCompile"
-    },
-      {
-        "label": "coverage",
-        "group": "test",
-        "command": "${workspaceFolder}/coverage.sh",
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}"
-        },
-        "presentation": {
-          "echo": true,
-          "reveal": "always",
-          "focus": false,
-          "panel": "shared",
-          "showReuseMessage": false,
-          "clear": true
-        },
-      },
-      {
-        "label": "build-solutions",
-        "group": "test",
-        "command": "dotnet restore; /home/lightmodepidro/Desktop/GodotEngine/Godot_v4.0.3-stable_mono_linux.x86_64 --headless --build-solutions --quit || exit 0",
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}"
-        },
-        "presentation": {
-          "echo": true,
-          "reveal": "silent",
-          "focus": false,
-          "panel": "shared",
-          "showReuseMessage": false,
-          "clear": false
-        }
-      },
-    ]
-  }
+          "label": "build",
+          "command": "dotnet",
+          "type": "shell",
+          "args": [
+              "build",
+              "${workspaceRoot}"
+          ]
+      }
+  ]
+}

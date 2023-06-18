@@ -12,14 +12,13 @@ public class PhysicsUtil
 
     public Vector3I[] GetCellNeighborsCoords(int X, int Y, int Z)
     {
-        Vector3I[] Coords = new Vector3I[26];
-        int[] Offsets = { -1, 0, 1 };
+        Vector3I[] Coords = new Vector3I[0];
 
-        foreach (var I in Offsets)
+        for (int I = -1; I <= 1; I++)
         {
-            foreach (var J in Offsets)
+            for (int J = -1; J <= 1; J++)
             {
-                foreach (var K in Offsets)
+                for (int K = -1; K <= 1; K++)
                 {
                     if (I == 0 && J == 0 && K == 0)
                         continue;
